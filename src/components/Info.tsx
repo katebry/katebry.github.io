@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import UseAnimations from 'react-useanimations';
+import arrowDown from 'react-useanimations/lib/arrowDown'
 import { About } from "./About";
 import { Experience } from "./Experience";
 import { Tech } from "./Tech";
@@ -63,6 +65,19 @@ const MobileExperienceButton = styled.div`
   display: none;
 `;
 
+const ScrollButtonWrapper = styled.div`
+  grid-area: 7 / 8 / 8 / 8;
+  display: flex;
+  align-content: center;
+  `
+
+const ScrollTextWrapper = styled.div`
+  margin-top: 2px;
+  font-size: 14px;
+  color: white;
+`
+
+
 export const Info = () => {
   const [active, setActive] = useState(0);
 
@@ -85,6 +100,12 @@ export const Info = () => {
         <Experience active={active} />
         <Tech active={active} />
       </Content>
+      <ScrollButtonWrapper>
+        <ScrollTextWrapper>
+        Scroll
+        </ScrollTextWrapper>
+      <UseAnimations animation={arrowDown} strokeColor='white' />
+      </ScrollButtonWrapper>
     </>
   );
 };
